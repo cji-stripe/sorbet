@@ -67,8 +67,12 @@ pushd "$build_dir" > /dev/null
 run_cmd() {{
     if ! "$@" < /dev/null >> build.log 2>&1; then
         echo "command $@ failed!"
+        echo '----- config.log -----'
+        cat config.log
+        echo '----- build.log -----'
         cat build.log
-        echo "build dir: $build_dir"
+        echo '----- build dir -----'
+        echo "$build_dir"
         exit 1
     fi
 }}

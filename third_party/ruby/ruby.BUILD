@@ -14,4 +14,10 @@ ruby(
             "@system_ssl_linux//:crypto",
         ],
     }),
+    linkopts = select({
+        "@com_stripe_ruby_typer//tools/config:darwin": [
+            "-mlinker-version=400",
+        ],
+        "@com_stripe_ruby_typer//tools/config:linux": [],
+    })
 )

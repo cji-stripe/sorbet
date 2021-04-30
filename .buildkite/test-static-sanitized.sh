@@ -30,6 +30,10 @@ err=0
 
 mkdir -p _out_
 
+echo "BEFORE"
+ld -v
+echo "AFTER"
+
 ./bazel test \
   --experimental_generate_json_trace_profile --profile=_out_/profile.json \
   @gems//... \
